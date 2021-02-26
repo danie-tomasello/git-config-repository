@@ -7,9 +7,10 @@
 zuul:
   host:
     connect-timeout-millis: 20000
-    socket-timeout-millis: 60000
-  ignored-services: '"*"'
+    socket-timeout-millis: 60000  
   prefix: /api
+  stripPrefix: true
+  ignoredServices: '"*"'
   
 #======================================
 # Route Parameters
@@ -18,8 +19,7 @@ zuul:
     auth:
       path: /**
       serviceId: authservice
-      sensitive-headers: Cookie,Set-Cookie      
-  strip-prefix: true    
+      sensitive-headers: Cookie,Set-Cookie   
     
 authservice:
   ribbon:
