@@ -1,8 +1,4 @@
-spring:
-   cloud:
-      loadbalancer:
-        ribbon:
-          enabled: false
+
 #======================================
 # Zuul Parameters
 #======================================
