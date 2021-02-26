@@ -43,8 +43,8 @@ hystrix:
 eureka:
   client:
     eureka-server-connect-timeout-seconds: 8
-    fetch-registry: true
-    register-with-eureka: true
+    fetchRegistry: true
+    registerWithEureka: true
     service-url:
       defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
 
