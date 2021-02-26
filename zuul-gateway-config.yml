@@ -1,5 +1,8 @@
-
-       
+spring:
+   cloud:
+      loadbalancer:
+        ribbon:
+          enabled: false
 #======================================
 # Zuul Parameters
 #======================================
@@ -26,8 +29,6 @@ authservice:
     connectTimeout: 20000
     maxConnectionsPerHost: 100
     maxTotalHttpConnections: 500
-    NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
-    listOfServers: http://localhost:8081
     readTimeout: 60000
 hystrix:
   command:
