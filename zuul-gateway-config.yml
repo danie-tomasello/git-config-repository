@@ -1,16 +1,5 @@
-#======================================
-# API gateway server zuul base
-#======================================
-server:
-  port: 9090
-  tomcat:
-    threads:
-      max: 5
-spring:
-  application:
-    name: zuul-gateway
-    
-    
+
+       
 #======================================
 # Zuul Parameters
 #======================================
