@@ -20,7 +20,7 @@ zuul:
     auth:
       path: /**
       serviceId: authservice
-      sensitive-headers:  
+      sensitive-headers: Cookie, Set-Cookie
     
 authservice:
   ribbon:
