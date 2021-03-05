@@ -23,8 +23,8 @@ zuul:
       sensitive-headers: Cookie, Set-Cookie
   routes:
     auth:
-      path: /**
-      serviceId: userservice
+      path: /guestUser
+      serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie    
     
 authservice:
@@ -43,7 +43,7 @@ hystrix:
           thread:
             timeoutInMilliseconds: 90000 
 
-userservice:
+user-service:
   ribbon:
     connectTimeout: 20000
     maxConnectionsPerHost: 100
@@ -53,7 +53,7 @@ userservice:
     readTimeout: 60000
 hystrix:
   command:
-    userservice:
+    user-service:
       execution:
         isolation:
           thread:
