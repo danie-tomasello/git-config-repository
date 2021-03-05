@@ -50,13 +50,7 @@ user-service:
     NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers : http://localhost:8010
     readTimeout: 60000
-hystrix:
-  command:
-    user-service:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 90000 
+ 
    
 
 #================================================================
