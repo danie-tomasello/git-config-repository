@@ -21,6 +21,11 @@ zuul:
       path: /**
       serviceId: authservice
       sensitive-headers: Cookie, Set-Cookie
+  routes:
+    auth:
+      path: /**
+      serviceId: userservice
+      sensitive-headers: Cookie, Set-Cookie    
     
 authservice:
   ribbon:
@@ -30,6 +35,15 @@ authservice:
     NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers : http://localhost:8081
     readTimeout: 60000
+
+userservice:
+  ribbon:
+    connectTimeout: 20000
+    maxConnectionsPerHost: 100
+    maxTotalHttpConnections: 500
+    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers : http://localhost:8010
+    readTimeout: 60000    
 hystrix:
   command:
     authservice:
