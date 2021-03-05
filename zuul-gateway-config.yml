@@ -21,8 +21,7 @@ zuul:
       path: /**
       serviceId: authservice
       sensitive-headers: Cookie, Set-Cookie
-  routes:
-    auth:
+    users:
       path: /guestUser/**
       serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie    
