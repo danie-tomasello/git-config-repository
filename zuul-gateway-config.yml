@@ -33,7 +33,7 @@ authservice:
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
     NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    ListOfServers : http://localhost:8081
+    listOfServers : http://localhost:8081
 
 user-service:
   ribbon:
@@ -41,8 +41,7 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
-    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    ListOfServers : http://localhost:8010    
+       
     
 hystrix:
   command:
