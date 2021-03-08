@@ -46,7 +46,7 @@ user-service:
     
 hystrix:
   command:
-    default:
+    authservice:
       execution:
         isolation:
           thread:
