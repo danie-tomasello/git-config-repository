@@ -50,7 +50,12 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 90000 
+            timeoutInMilliseconds: 90000
+    authservice:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 90000
            
 
  
