@@ -46,16 +46,12 @@ user-service:
     
 hystrix:
   command:
-    authservice:
+    default:
       execution:
         isolation:
           thread:
             timeoutInMilliseconds: 90000 
-    user-service:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 90000 
+
  
    
 
