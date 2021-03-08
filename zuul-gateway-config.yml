@@ -29,20 +29,20 @@ zuul:
 authservice:
   ribbon:
     connectTimeout: 20000
+    readTimeout: 60000
     maxConnectionsPerHost: 100
     maxTotalHttpConnections: 500
     NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers : http://localhost:8081
-    readTimeout: 60000
 
 user-service:
   ribbon:
     connectTimeout: 20000
+    readTimeout: 60000
     maxConnectionsPerHost: 100
     maxTotalHttpConnections: 500
     NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    listOfServers : http://localhost:8010
-    readTimeout: 60000
+    listOfServers : http://localhost:8010    
     
 hystrix:
   command:
