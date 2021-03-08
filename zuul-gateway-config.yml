@@ -41,6 +41,8 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
+    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers : http://localhost:8010
        
     
 hystrix:
