@@ -11,7 +11,6 @@ zuul:
   stripPrefix: true
   ignoredServices: '*'
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
-  #Access-Control-Allow-Credentials,
   
 #======================================
 # Route Parameters
@@ -83,6 +82,29 @@ logging:
       springframework:
         cloud: DEBUG
         security: DEBUG
+
+#================================================================
+#Actuator Parameters
+#================================================================          
+management:
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,routes,filters
+        
+#Actuator info
+info:
+  assistenza: 
+    nome: "Daniele Tomasello"
+  nome:
+    nome-app: "Zuul Server"
+        
 #================================================================
 #Sicurezza properties
 #================================================================           
