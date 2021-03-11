@@ -44,15 +44,11 @@ user-service:
        
     
 hystrix:
-  command:
-    user-service:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 90000
+  command:    
     authservice:
       execution:
         isolation:
+          strategy: THREAD
           thread:
             timeoutInMilliseconds: 90000
            
