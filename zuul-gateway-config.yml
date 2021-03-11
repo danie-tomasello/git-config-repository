@@ -28,7 +28,8 @@ zuul:
   host:
     connect-timeout-millis: 20000
     socket-timeout-millis: 60000  
-  prefix: /api  
+  prefix: /api
+  stripPrefix: true
   ignoredServices: '*'
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
   
@@ -39,12 +40,10 @@ zuul:
     auth:
       path: /**
       serviceId: authservice
-      stripPrefix: true
       sensitive-headers: Cookie, Set-Cookie
     users:
       path: /guestUser/**
       serviceId: user-service
-      stripPrefix: true
       sensitive-headers: Cookie, Set-Cookie    
 
    
