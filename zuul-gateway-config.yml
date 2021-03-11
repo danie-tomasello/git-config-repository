@@ -56,14 +56,21 @@ hystrix:
           thread:
             timeoutInMilliseconds: 90000
            
-
  
-   
 
 #================================================================
 #Eureka properties
 #================================================================    
 eureka:
+  instance:
+    #intervallo di attesa prima della rimozione del servizio(def 90 sec)
+    lease-expiration-duration-in-seconds: 60
+    #intervallo invio heartbeat (def 30 sec)
+    leaseRenewalIntervalInSeconds: 15
+    #id di idendificazione dell'istanza
+    instanceId: ${server.port}-${spring.application.name}
+    #registrazione per indirizzo ip (def hostname)
+    preferIpAddress: true
   client:
     fetchRegistry: true
     registerWithEureka: true
