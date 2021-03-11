@@ -42,6 +42,7 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
+    ServiceListRefreshInterval: 5000
     #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     #listOfServers : http://localhost:8011,http://localhost:8012
     
