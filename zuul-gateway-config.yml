@@ -25,9 +25,7 @@ zuul:
       serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie    
 
-ribbon:
-  eureka:
-    enabled: false    
+   
 authservice:
   ribbon:
     ConnectTimeout: 20000
