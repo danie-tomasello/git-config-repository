@@ -45,7 +45,7 @@ user-service:
     
 hystrix:
   command:    
-    authservice:
+    default:
       execution:
         isolation:
           strategy: THREAD
