@@ -37,8 +37,8 @@ authservice:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
-    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    listOfServers : http://localhost:8080,http://localhost:8081,http://localhost:8082
+    #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
+    #listOfServers : http://localhost:8080,http://localhost:8081,http://localhost:8082
 
 user-service:
   ribbon:
