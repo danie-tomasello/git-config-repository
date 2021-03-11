@@ -43,8 +43,8 @@ user-service:
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
     ServiceListRefreshInterval: 5000
-    #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    #listOfServers : http://localhost:8011,http://localhost:8012
+    NIWSServerListClassName : com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+    listOfServers : http://localhost:8011,http://localhost:8012
     
 hystrix:
   command:    
