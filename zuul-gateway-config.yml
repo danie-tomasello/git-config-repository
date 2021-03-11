@@ -1,5 +1,122 @@
-server:
-  port: 9090
-  tomcat:
-    threads:
-      max: 5
+
+
+#======================================
+# Zuul Parameters
+#======================================
+
+zuul:
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 60000  
+  prefix: /api
+  stripPrefix: true
+  ignoredServices: '*'
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  
+#======================================
+# Route Parameters
+#======================================
+  routes:
+    auth:
+      path: /**
+      serviceId: authservice
+      sensitive-headers: Cookie, Set-Cookie
+    users:
+      path: /guestUser/**
+      serviceId: user-service
+      sensitive-headers: Cookie, Set-Cookie    
+
+   
+authservice:
+  ribbon:
+    ConnectTimeout: 20000
+    ReadTimeout: 60000
+    MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers : http://localhost:8080,http://localhost:8081,http://localhost:8082
+
+user-service:
+  ribbon:
+    ConnectTimeout: 20000
+    ReadTimeout: 60000
+    MaxConnectionsPerHost: 100
+    MaxTotalHttpConnections: 500
+    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
+    listOfServers : http://localhost:8011,http://localhost:8012
+    
+hystrix:
+  command:    
+    default:
+      execution:
+        isolation:
+          strategy: THREAD
+          thread:
+            timeoutInMilliseconds: 90000
+           
+ 
+#================================================================
+#Eureka properties
+#================================================================    
+eureka:
+  instance:
+    #intervallo di attesa prima della rimozione del servizio(def 90 sec)
+    lease-expiration-duration-in-seconds: 60
+    #intervallo invio heartbeat (def 30 sec)
+    leaseRenewalIntervalInSeconds: 15
+    #id di idendificazione dell'istanza
+    instanceId: ${server.port}-${spring.application.name}
+    #registrazione per indirizzo ip (def hostname)
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
+    eureka-server-connect-timeout-seconds: 8  
+
+           
+#================================================================
+#Livello Log di Sicurezza
+#================================================================            
+logging:
+  level:
+    org:
+      springframework:
+        cloud: DEBUG
+        security: DEBUG
+
+#================================================================
+#Actuator Parameters
+#================================================================          
+management:
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,routes,filters
+        
+#Actuator info
+info:
+  assistenza: 
+    nome: "Daniele Tomasello"
+  nome:
+    nome-app: "Zuul Server"
+        
+#================================================================
+#Sicurezza properties
+#================================================================           
+
+jwt:
+  header: 'X-Auth'
+  expiration: 7200
+  secret: 'mySecret'        
+
+
+  
+      
