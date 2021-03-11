@@ -24,7 +24,10 @@ zuul:
       path: /guestUser/**
       serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie    
-    
+
+ribbon:
+  eureka:
+    enabled: false    
 authservice:
   ribbon:
     ConnectTimeout: 20000
@@ -41,7 +44,7 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
-    listOfServers : http://localhost:8011,http://localhost:8012  
+    #listOfServers : http://localhost:8011,http://localhost:8012
     
 hystrix:
   command:    
