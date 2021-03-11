@@ -53,6 +53,8 @@ authservice:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
+    eureka:
+      enabled: true
     #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     #listOfServers : http://localhost:8080,http://localhost:8081,http://localhost:8082
 
@@ -62,6 +64,8 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
+    eureka:
+      enabled: true
     #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     #listOfServers : http://localhost:8010,http://localhost:8011,http://localhost:8012
     
