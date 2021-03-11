@@ -4,9 +4,6 @@
 # Zuul Parameters
 #======================================
 
-ribbon:
-  eureka:
-    enabled: true
 
 zuul:
   host:
