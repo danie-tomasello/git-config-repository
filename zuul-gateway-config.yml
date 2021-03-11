@@ -68,6 +68,7 @@ eureka:
     instanceId: ${server.port}-${spring.application.name}
     #registrazione per indirizzo ip (def hostname)
     preferIpAddress: true
+    non-secure-port-enabled: true
   client:
     fetchRegistry: true
     registerWithEureka: true
