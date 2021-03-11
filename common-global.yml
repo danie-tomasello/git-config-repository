@@ -23,6 +23,25 @@ spring:
     loadbalancer:
       ribbon:
         enabled: false 
+
+# ==============================================================
+# = Feign Parameters
+# ============================================================== 
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  httpclient:
+    connection-timeout: 3000
+  client:
+    config:
+      default:
+        connectTimeout: 300000 #5 MINUTI
+        readTimeout: 300000
+        
+
     
 info:
   assistenza:
