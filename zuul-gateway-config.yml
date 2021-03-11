@@ -8,7 +8,7 @@ zuul:
     connect-timeout-millis: 20000
     socket-timeout-millis: 60000  
   prefix: /api
-  strip-prefix: false
+  stripPrefix: false
   ignoredServices: '*'
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
   
