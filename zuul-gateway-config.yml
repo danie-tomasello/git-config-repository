@@ -43,7 +43,7 @@ zuul:
       sensitive-headers: Cookie, Set-Cookie
     users:
       path: /guestUser/**
-      serviceId: user-service
+      serviceId: USER-SERVICE
       sensitive-headers: Cookie, Set-Cookie    
 ribbon:
   eureka:
@@ -58,7 +58,7 @@ authservice:
     #NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
     #listOfServers : http://localhost:8080,http://localhost:8081,http://localhost:8082
 
-user-service:
+USER-SERVICE:
   ribbon:
     ConnectTimeout: 20000
     ReadTimeout: 60000
