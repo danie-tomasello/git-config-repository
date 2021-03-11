@@ -1,3 +1,8 @@
+server:
+  port: 9090
+  tomcat:
+    threads:
+      max: 5
 
 #======================================
 # Zuul Parameters
@@ -56,9 +61,6 @@ hystrix:
             timeoutInMilliseconds: 90000
            
  
-ribbon:
-  eureka:
-   enabled: false 
 #================================================================
 #Eureka properties
 #================================================================    
@@ -72,7 +74,6 @@ eureka:
     instanceId: ${server.port}-${spring.application.name}
     #registrazione per indirizzo ip (def hostname)
     preferIpAddress: true
-    non-secure-port-enabled: true
   client:
     fetchRegistry: true
     registerWithEureka: true
@@ -124,3 +125,4 @@ jwt:
 
 
   
+      
