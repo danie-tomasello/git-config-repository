@@ -3,11 +3,10 @@
 #======================================
 # Zuul Parameters
 #======================================
-spring:
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
+
+ribbon:
+  eureka:
+    enabled: false
 
 zuul:
   host:

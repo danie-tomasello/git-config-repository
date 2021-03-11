@@ -17,6 +17,12 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
     eureka-server-connect-timeout-seconds: 8  
+ 
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false 
     
 info:
   assistenza:
