@@ -81,14 +81,20 @@ logging:
         cloud: DEBUG
         security: DEBUG
 
+
+        
 # ==============================================================
 # = Actuator configuration
 # ==============================================================        
+# info
 info:
+  nome:
+    nome-app: "Zuul Server"
   assistenza:
     mail: daniel199604@hotmail.it
     nome: Daniele Tomasello
     telefono: 3203063609
+#config
 management:
   endpoint:
     health:
@@ -97,19 +103,12 @@ management:
   endpoints:
     web:
       exposure:
-        #include: health,info,metrics,refresh,routes,filters
+        #include: health,info,metrics,routes,filters
         include: "*"
   info:
     git:
       mode: full
-
         
-#Actuator info
-info:
-  assistenza: 
-    nome: "Daniele Tomasello"
-  nome:
-    nome-app: "Zuul Server"
         
 #================================================================
 #Sicurezza properties
