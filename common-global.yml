@@ -12,7 +12,7 @@ eureka:
     #registrazione per indirizzo ip (def hostname)
     preferIpAddress: true
   client:
-    fetch-registry: true
+    fetchRegistry: true
     registerWithEureka: true
     serviceUrl:
       defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
