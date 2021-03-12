@@ -88,9 +88,9 @@ management:
   info:
     git:
       mode: full
-  endpoint:
-    health:
-      show-details: WHEN_AUTHORIZED
+#  endpoint:
+#    health:
+#      show-details: WHEN_AUTHORIZED
   endpoints:
     web:
       exposure:
