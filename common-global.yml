@@ -1,0 +1,67 @@
+#================================================================
+#Eureka properties
+#================================================================    
+eureka:
+  instance:
+    #intervallo di attesa prima della rimozione del servizio(def 90 sec)
+    lease-expiration-duration-in-seconds: 60
+    #intervallo invio heartbeat (def 30 sec)
+    leaseRenewalIntervalInSeconds: 15
+    #id di idendificazione dell'istanza
+    instanceId: ${server.port}-${spring.application.name}
+    #registrazione per indirizzo ip (def hostname)
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
+    eureka-server-connect-timeout-seconds: 8  
+ 
+spring:
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false 
+
+# ==============================================================
+# = Feign Parameters
+# ============================================================== 
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  httpclient:
+    connection-timeout: 3000
+  client:
+    config:
+      default:
+        connectTimeout: 300000 #5 MINUTI
+        readTimeout: 300000
+        
+
+    
+info:
+  assistenza:
+    mail: daniel199604@hotmail.it
+    nome: Daniele Tomasello
+    telefono: 3203063609
+logging:
+  level:
+    org:
+      springframework:
+        cloud: DEBUG
+        security: DEBUG
+management:
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  info:
+    git:
+      mode: full

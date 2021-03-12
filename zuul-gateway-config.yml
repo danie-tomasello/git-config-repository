@@ -1,4 +1,25 @@
 
+#================================================================
+#Eureka properties
+#================================================================    
+eureka:
+  instance:
+    #intervallo di attesa prima della rimozione del servizio(def 90 sec)
+    lease-expiration-duration-in-seconds: 60
+    #intervallo invio heartbeat (def 30 sec)
+    leaseRenewalIntervalInSeconds: 15
+    #id di idendificazione dell'istanza
+    instanceId: ${server.port}-${spring.application.name}
+    #registrazione per indirizzo ip (def hostname)
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
+    eureka-server-connect-timeout-seconds: 8  
+    
+    
 #======================================
 # Zuul Parameters
 #======================================
@@ -11,7 +32,6 @@ zuul:
   stripPrefix: true
   ignoredServices: '*'
   ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
-  #Access-Control-Allow-Credentials,
   
 #======================================
 # Route Parameters
@@ -24,16 +44,14 @@ zuul:
     users:
       path: /guestUser/**
       serviceId: user-service
-      sensitive-headers: Cookie, Set-Cookie    
-    
+      sensitive-headers: Cookie, Set-Cookie  
+   
 authservice:
   ribbon:
     ConnectTimeout: 20000
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
-    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    listOfServers : http://localhost:8081
 
 user-service:
   ribbon:
@@ -41,39 +59,18 @@ user-service:
     ReadTimeout: 60000
     MaxConnectionsPerHost: 100
     MaxTotalHttpConnections: 500
-    NIWSServerListClassName : com.netflix.loadbalancer.ConfigurationBasedServerList
-    listOfServers : http://localhost:8010
-       
     
 hystrix:
-  command:
-    user-service:
+  command:    
+    default:
       execution:
         isolation:
+          strategy: THREAD
           thread:
-            timeoutInMilliseconds: 90000
-    authservice:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 90000
-           
-
- 
-   
-
-#================================================================
-#Eureka properties
-#================================================================    
-eureka:
-  client:
-    fetchRegistry: true
-    registerWithEureka: true
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://admin:admin@localhost:8761/eureka/}
-    eureka-server-connect-timeout-seconds: 8  
-
+            timeoutInMilliseconds: 160000
             
+
+           
 #================================================================
 #Livello Log di Sicurezza
 #================================================================            
@@ -83,6 +80,29 @@ logging:
       springframework:
         cloud: DEBUG
         security: DEBUG
+
+#================================================================
+#Actuator Parameters
+#================================================================          
+management:
+  info:
+    git:
+      mode: full
+  endpoint:
+    health:
+      show-details: WHEN_AUTHORIZED
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,routes,filters
+        
+#Actuator info
+info:
+  assistenza: 
+    nome: "Daniele Tomasello"
+  nome:
+    nome-app: "Zuul Server"
+        
 #================================================================
 #Sicurezza properties
 #================================================================           
@@ -94,3 +114,4 @@ jwt:
 
 
   
+      
