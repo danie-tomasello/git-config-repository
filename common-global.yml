@@ -43,17 +43,38 @@ feign:
         
 
     
-info:
-  assistenza:
-    mail: daniel199604@hotmail.it
-    nome: Daniele Tomasello
-    telefono: 3203063609
+
+
+# ==============================================================
+# = Log configuration
+# = default levels ERROR, WARN, INFO
+# = levels TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF
+# ==============================================================
 logging:
   level:
     org:
       springframework:
         cloud: DEBUG
         security: DEBUG
+  file: 
+    name: userSrv.log
+    max-size: 1MB
+    #path: "/logs"
+  pattern:
+    file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{dd-MM-yyyy HH:mm:ss} - %msg%n"
+    
+  
+        
+
+# ==============================================================
+# = Actuator configuration
+# ==============================================================        
+info:
+  assistenza:
+    mail: daniel199604@hotmail.it
+    nome: Daniele Tomasello
+    telefono: 3203063609
 management:
   endpoint:
     health:
