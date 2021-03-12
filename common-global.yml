@@ -57,7 +57,7 @@ logging:
         cloud: DEBUG
         security: DEBUG
   file: 
-    name: userSrv.log
+    name: ./logs/userSrv.log
     max-size: 1MB
     path: "/logs"
   pattern:
