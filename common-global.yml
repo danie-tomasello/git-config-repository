@@ -77,8 +77,8 @@ info:
 management:
   endpoint:
     health:
-      #show-details: WHEN_AUTHORIZED
-      show-details: always
+      show-details: WHEN_AUTHORIZED
+      #show-details: always
   endpoints:
     web:
       exposure:
