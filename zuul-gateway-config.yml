@@ -81,20 +81,28 @@ logging:
         cloud: DEBUG
         security: DEBUG
 
-#================================================================
-#Actuator Parameters
-#================================================================          
+# ==============================================================
+# = Actuator configuration
+# ==============================================================        
+info:
+  assistenza:
+    mail: daniel199604@hotmail.it
+    nome: Daniele Tomasello
+    telefono: 3203063609
 management:
-  info:
-    git:
-      mode: full
-#  endpoint:
-#    health:
-#      show-details: WHEN_AUTHORIZED
+  endpoint:
+    health:
+      #show-details: WHEN_AUTHORIZED
+      show-details: always
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,routes,filters
+        #include: health,info,metrics,refresh,routes,filters
+        include: "*"
+  info:
+    git:
+      mode: full
+
         
 #Actuator info
 info:
