@@ -89,7 +89,7 @@ logging:
 # info
 info:
   nome:
-    nome-app: "Zuul Server yop"
+    nome-app: "Zuul Server"
   assistenza:
     mail: daniel199604@hotmail.it
     nome: Daniele Tomasello
