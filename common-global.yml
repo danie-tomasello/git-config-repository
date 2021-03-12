@@ -59,7 +59,7 @@ logging:
   file: 
     name: userSrv.log
     max-size: 1MB
-    #path: "/logs"
+    path: "/logs"
   pattern:
     file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n"
     console: "%d{dd-MM-yyyy HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
