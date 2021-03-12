@@ -44,8 +44,7 @@ zuul:
     users:
       path: /guestUser/**
       serviceId: user-service
-      sensitive-headers: Cookie, Set-Cookie 
-      stripPrefix: false   
+      sensitive-headers: Cookie, Set-Cookie  
 ribbon:
   eureka:
     enabled: true
