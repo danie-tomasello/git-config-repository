@@ -75,13 +75,14 @@ info:
     nome: Daniele Tomasello
     telefono: 3203063609
 management:
-  endpoint:
-    health:
-      show-details: WHEN_AUTHORIZED
+#  endpoint:
+#    health:
+#      show-details: WHEN_AUTHORIZED
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,refresh
+        #include: health,info,metrics,refresh
+        include: "*"
   info:
     git:
       mode: full
