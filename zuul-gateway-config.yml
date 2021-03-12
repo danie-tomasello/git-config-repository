@@ -45,9 +45,6 @@ zuul:
       path: /guestUser/**
       serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie  
-ribbon:
-  eureka:
-    enabled: true
    
 authservice:
   ribbon:
