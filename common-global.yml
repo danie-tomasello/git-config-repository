@@ -24,6 +24,7 @@ spring:
       ribbon:
         enabled: false 
 
+
 # ==============================================================
 # = Feign Parameters
 # ============================================================== 
@@ -82,7 +83,18 @@ management:
     web:
       exposure:
         include: health,info,metrics,refresh
-        #include: "*"
   info:
     git:
       mode: full
+
+      
+      
+#===============================================================
+#= JWT config
+#===============================================================      
+jwt:
+  header: X-Auth
+  expiration: 7200
+  secret: mySecret
+  
+     
