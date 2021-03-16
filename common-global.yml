@@ -58,7 +58,7 @@ logging:
         cloud: DEBUG
         security: DEBUG
   file: 
-    name: ./logs/userSrv.log
+    name: ./logs/${spring.application.name}.log
     max-size: 1MB
   pattern:
     file: "%d{ dd-MM-yyyy } [%thread] %-5level %logger{36} - %msg%n"
