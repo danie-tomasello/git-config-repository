@@ -132,9 +132,11 @@ management:
 #================================================================           
 
 jwt:
-  header: 'X-Auth'
-  expiration: 7200
-  secret: 'mySecret'        
+  header: X-Auth
+  refreshHeader: X-Refresh
+  expiration: 120
+  refreshExpiration: 7200
+  secret: mySecret     
 
 
   
