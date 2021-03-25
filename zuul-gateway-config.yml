@@ -21,7 +21,7 @@ zuul:
       serviceId: authservice
       sensitive-headers: Cookie, Set-Cookie
     users:
-      path: /guestUser/**
+      path: /user/**
       serviceId: user-service
       sensitive-headers: Cookie, Set-Cookie  
     emailreg:
