@@ -95,7 +95,7 @@ management:
 jwt:
   header: X-Auth
   refreshHeader: X-Refresh
-  expiration: 600
+  expiration: 30
   refreshExpiration: 1800
   secret: mySecret
   
